@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const PORT = process.config.PORT || 4000 ;
 const userRoutes = require("./routes/user");
-
+const cors=require("cors");
 require('dotenv').config();
 require('./config/database').connect();
 
@@ -23,4 +23,3 @@ app.get('/api',(req,res)=>{
 app.listen(PORT ,() => {
     console.log(`App is listening at ${PORT}`);
 })
-
