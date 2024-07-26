@@ -13,26 +13,3 @@ exports.connect = () =>{
         console.log("Error found ");
         process.exit(1);
     });
-
-
-}
-const logInSchema=new mongoose.Schema({
-    name:{
-        type:Object,
-        required: true
-    },
-    email:{
-        type: String,
-        required: true
-    },
-    phone:{
-        type:String,
-        required: true
-    },
-    password:{
-        type: String, 
-        required: true
-    },
-})
-const collection1=new mongoose.model("login",logInSchema);
-exports.item=collection1
