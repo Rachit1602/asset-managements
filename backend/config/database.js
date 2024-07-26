@@ -13,6 +13,3 @@ exports.connect = () =>{
         console.log("Error found ");
         process.exit(1);
     });
-
-
-}
