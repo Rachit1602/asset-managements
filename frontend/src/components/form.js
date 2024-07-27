@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 
+
 const VehicleForm = () => {
     // State for form fields
     const [formData, setFormData] = useState({
@@ -170,4 +171,8 @@ const VehicleForm = () => {
     );
 };
 
+<<<<<<< HEAD
 export default VehicleForm;
+=======
+export default VehicleForm;
+>>>>>>> da3043fb287f69009065fd475ee93d7ee7f13ce8
