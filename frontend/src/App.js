@@ -1,54 +1,17 @@
-
+import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 import SignupForm from './components/SignUp';
 import Login from './components/Login';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import VehicleForm from './components/form';
-import {createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
-
-
-/*
-const AppLayout = () => {
-  return (
-  <>
-  <Outlet/>
-  </>
-  );
-      
-};
-
-const appRouter = createBrowserRouter([
-  { 
-      path : "/",
-      element : <AppLayout/>,
-      children: [
-          {
-              path: "/signup",
-              element: <SignupForm/>,
-          },
-          {
-              path: "/",
-              element : <Login/>,
-          },
-      ],
-  },
-  
-]);
-
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<RouterProvider router={appRouter}/>);
-
-*/
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
+  
   return (
     <div className="App">
       <SignupForm/>
-      <Login/>     
-      <VehicleForm/>
+      <Login/>
       <ToastContainer/>
     </div>
   );
