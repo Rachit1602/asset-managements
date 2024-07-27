@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    middleName: '',
-    lastName: '',
+    firstname: '',
+    middlename: '',
+    lastname: '',
     email: '',
     password: '',
   });
@@ -58,8 +58,8 @@ const SignupForm = () => {
         <label>First Name:</label>
         <input
           type="text"
-          name="firstName"
-          value={formData.firstName}
+          name="firstname"
+          value={formData.firstname}
           onChange={handleChange}
           required
         />
@@ -68,8 +68,8 @@ const SignupForm = () => {
         <label>Middle Name:</label>
         <input
           type="text"
-          name="middleName"
-          value={formData.middleName}
+          name="middlename"
+          value={formData.middlename}
           onChange={handleChange}
         />
       </div>
@@ -77,8 +77,8 @@ const SignupForm = () => {
         <label>Last Name:</label>
         <input
           type="text"
-          name="lastName"
-          value={formData.lastName}
+          name="lastname"
+          value={formData.lastname}
           onChange={handleChange}
           required
         />
