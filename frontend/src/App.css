@@ -125,16 +125,7 @@ p {
 
 
 /* styles.css */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
+
 
 h1 {
   color: #333;
@@ -200,4 +191,101 @@ textarea:focus {
     padding: 30px 20px;
   }
 
+}
+
+
+/* resources css */
+/* src/components/Resources.css */
+
+
+
+/* new */
+/* styles.css */
+.resources-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f4f4;
+  padding: 20px;
+}
+
+.header {
+  background: #003366;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-content h1 {
+  margin: 0;
+  font-size: 2rem;
+  color:white
+}
+
+.header-content h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.resources-section {
+  margin-top: 20px;
+  text-align: center;
+  
+    padding: 40px 20px;
+    background-image: url('../public/images/bg-3.avif');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+
+}
+
+.resources-title {
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.resource-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.resource-card {
+  background: #ffffff;
+  border: 2px solid #dddddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+.resource-card:hover {
+  border-color: #0056b3;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.icon-container {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.icon {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  transition: background 0.3s ease;
+}
+
+.resource-card:hover .icon {
+  background: #0056b3;
+  color: #ffffff;
+}
+
+.resource-card h3 {
+  margin: 10px 0 0;
+  font-size: 1.2rem;
 }

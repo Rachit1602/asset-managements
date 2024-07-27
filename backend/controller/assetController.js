@@ -61,6 +61,8 @@ const getAssetById = async (req, res) => {
     }
 };
 
+
+
 module.exports = {
     getAllAssetsByType,
     getAssetById,

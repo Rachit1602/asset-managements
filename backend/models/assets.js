@@ -43,7 +43,7 @@ const infrastructureSchema = mongoose.Schema({
     name: {
         type: String
     },
-    buildingId: {
+    buildingType: {
         type: String
     },
     location: {
@@ -65,7 +65,7 @@ const infrastructureSchema = mongoose.Schema({
         type: String
     },
     maintenanceHistory: {
-        type: Object
+        type: String
     },
     expenditure: {
         type: Object
