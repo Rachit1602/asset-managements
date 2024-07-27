@@ -5,6 +5,7 @@ const User = require("../models/userModel");
 const jwt= require("jsonwebtoken");
 require('dotenv').config();
 console.log(User);
+
 const transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     auth: {
@@ -14,6 +15,7 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+// sending mail logic 
 const sendEmail = async (mailOptions) => {
     try {
         let info = await transporter.sendMail(mailOptions);
@@ -24,6 +26,7 @@ const sendEmail = async (mailOptions) => {
     }
 };
 
+// signup logic 
 const signup = async (req, res) => {
     try {
         const { firstname,middlename,lastname, email, password, role } = req.body;
