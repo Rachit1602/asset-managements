@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <SignupForm/>
       <Login/>
-      <VehicleForm></VehicleForm>
+      <VehicleForm/>
       <ToastContainer/>
     </div>
   );

@@ -124,18 +124,6 @@ p {
 }
 
 
-/* styles.css */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
 h1 {
   color: #333;
   margin-bottom: 20px;
