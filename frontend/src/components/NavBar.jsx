@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <div className='bg-black flex justify-between items-center h-24 text-white'>
       {/* Logo */}
-      <h1 className='w-full text-3xl font-bold  text-[#00df9a]'>Indore Connect</h1>
+      <h1 className='my-auto mx-8 text-3xl font-bold  text-[#00df9a]'>Indore Connect</h1>
 
       {/* Desktop Navigation */}
       <ul className='hidden md:flex'>
