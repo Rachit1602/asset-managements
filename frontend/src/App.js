@@ -3,6 +3,8 @@ import './App.css';
 import React from 'react';
 import SignupForm from './components/SignUp';
 import Login from './components/Login';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   
@@ -10,6 +12,7 @@ function App() {
     <div className="App">
       <SignupForm/>
       <Login/>
+      <ToastContainer/>
     </div>
   );
 }
