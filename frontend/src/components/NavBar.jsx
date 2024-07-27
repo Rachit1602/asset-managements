@@ -20,9 +20,9 @@ const Navbar = () => {
   ];
 
   return (
-    <div className='bg-black flex justify-between items-center h-24 text-white'>
+    <div className='bg-black flex justify-between items-center h-24 text-white align-baseline'>
       {/* Logo */}
-      <h1 className='w-full text-3xl font-bold  text-[#00df9a]'>Indore Connect</h1>
+      <h1 className='w-full text-3xl font-bold my-auto text-[#00df9a] align-baseline'>IndoreConnect</h1>
 
       {/* Desktop Navigation */}
       <ul className='hidden md:flex'>

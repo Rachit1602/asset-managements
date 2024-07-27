@@ -8,7 +8,7 @@ import Navigation from './components/Navigation';
 import Home from './components/Home';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-import {BrowserRouter,Routes,Route,Outlet} from 'react-router-dom';
+import {BrowserRouter,Routes,Route, Outlet} from 'react-router-dom';
 
 
 function App() {
