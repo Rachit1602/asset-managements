@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const nodemailer = require('nodemailer');
 const User = require("../models/userModel");
+const jwt= require("jsonwebtoken");
 require('dotenv').config();
 console.log(User);
 
@@ -28,7 +29,7 @@ const sendEmail = async (mailOptions) => {
 // signup logic 
 const signup = async (req, res) => {
     try {
-        const { name, email, password, role } = req.body;
+        const { firstname,middlename,lastname, email, password, role } = req.body;
         console.log(req.body);
 
         const mailOptions = {
@@ -50,6 +51,11 @@ const signup = async (req, res) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
+        const name={
+            firstname,
+            middlename,
+            lastname,
+        }
 
         const user = await User.create({
             name,
@@ -73,6 +79,40 @@ const signup = async (req, res) => {
     }
 };
 
-// login logic 
+const login = async(req, res)=>{
+    const {email, password} = req.body;
+    console.log(req.body);
+    let checkMail= await User.findOne({email});
+    if(!checkMail){
+        return res.status(400).json({
+            success: false,
+            message: 'User Doesnot exists',
+        });
+    }
+    const payload={
+        email: checkMail.email,
+        id:checkMail.id,
+        role: checkMail.role
+    }
+    if(await bcrypt.compare(password, checkMail.password)){
+        const tkn=jwt.sign(payload,process.env.JWT_SECRET,{
+            expiresIn:'1h'
+        });
+        checkMail=checkMail.toObject();
+        checkMail.tkn= tkn;
+        checkMail.password=undefined;
+        return res.status(200).json({
+            success: true,
+            message: `user logged in successfully`
+        })
+    }else{
+        return res.status(401).json({
+            success: false,
+            message: `password didn't match`
+        })
+    }
 
-module.exports = { signup };
+}
+
+
+module.exports = { signup,login };
