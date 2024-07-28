@@ -1,7 +1,7 @@
 // taking instance 
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4000;
 const userRoutes = require("./routes/user");
 const assetRoutes = require("./routes/assetRoutes");
 const cors=require("cors");
