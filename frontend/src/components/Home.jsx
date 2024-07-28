@@ -6,9 +6,9 @@ import Resources from './Resources';
 
 export default function Home(){
     return (
-        <div className='h-128'>
+        <div className=''>
             <ImgCarousel/>
-            <Resources/>
+            <Resources className="relative py-2   mx-0"/>
             <FooterComp/>
         </div>
 
