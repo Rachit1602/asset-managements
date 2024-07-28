@@ -8,7 +8,7 @@ import Navigation from './components/Navigation';
 import Home from './components/Home';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-import {BrowserRouter,Routes,Route, Outlet} from 'react-router-dom';
+import {BrowserRouter,Routes,Route,Outlet} from 'react-router-dom';
 
 
 function App() {
@@ -21,7 +21,9 @@ function App() {
                     <Route index element={<Home/>} />
                     <Route path="login" element={<Login/>} />
                     <Route path="signup" element={<SignupForm/>} />
-                    <Route path="assets/Vehicle" element={<VehicleForm/>} />
+                    <Route path="assets/Vehicle" element={<VehicleInfo/>} />
+                    <Route path="assets/addVehicle" element={<VehicleForm/>} />
+                    <Route path="assets/addInfrastructure" element={<InfrastructureForm/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

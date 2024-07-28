@@ -15,13 +15,13 @@ const Resources = () => {
         <div className="resource-cards">
           <div className="resource-card">
             <div className="icon-container">
-              <span className="icon">📊</span>
+              <span className="icon"><a href='/assets/Vehicle'>📊</a></span>
             </div>
             <h3>Vechiles Data </h3>
           </div>
           <div className="resource-card">
             <div className="icon-container">
-              <span className="icon">📈</span>
+              <span className="icon"><a href="/assets/Infrastructure/">📈</a></span>
             </div>
             <h3>Infrastructure</h3>
           </div>
