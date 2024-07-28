@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import {BrowserRouter,Routes,Route,Outlet} from 'react-router-dom';
 import VehicleInfo from './components/VehichleInfo';
 import InfrastructureForm from './components/InfrastructureForm';
-
+import InfrastructureInfo from './components/InfrastructureInfo';
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
                     <Route path="login" element={<Login/>} />
                     <Route path="signup" element={<SignupForm/>} />
                     <Route path="assets/Vehicle" element={<VehicleInfo/>} />
+                    <Route path="assets/Infrastructure" element={<InfrastructureInfo/>} />
                     <Route path="assets/addVehicle" element={<VehicleForm/>} />
                     <Route path="assets/addInfrastructure" element={<InfrastructureForm/>} />
                    

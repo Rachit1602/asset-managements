@@ -20,9 +20,9 @@ const Navbar = () => {
   ];
 
   return (
-    <div className='bg-black flex justify-between items-center h-24 text-white'>
+    <div className='bg-black flex justify-between items-center h-24 text-white align-baseline'>
       {/* Logo */}
-      <h1 className='my-auto mx-8 text-3xl font-bold  text-[#00df9a]'>Indore Connect</h1>
+      <h1 className='my-auto mx-4 text-3xl font-bold  text-[#00df9a]'>IndoreConnect</h1>
 
       {/* Desktop Navigation */}
       <ul className='hidden md:flex'>
@@ -34,6 +34,10 @@ const Navbar = () => {
             <a href={item.path}>{item.text}</a>
           </li>
         ))}
+      </ul>
+      <ul className='flex'>
+        <li><a href='/login' className='mx-4  hover:bg-[#00df9a] p-4 rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>Login</a></li>
+        <li><a href='/signup' className='mx-4 hover:bg-[#00df9a] p-4 rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>SignUp</a></li>
       </ul>
 
       {/* Mobile Navigation Icon */}

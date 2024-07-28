@@ -34,6 +34,7 @@ const vehicleSchema = mongoose.Schema({
     brakeCondition: {
         type: String
     },
+    
     vehicleAge: {
         type: String
     }
