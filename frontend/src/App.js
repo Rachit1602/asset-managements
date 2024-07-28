@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import {BrowserRouter,Routes,Route,Outlet} from 'react-router-dom';
 import VehicleInfo from './components/VehichleInfo';
 import InfrastructureForm from './components/InfrastructureForm';
-
+import InfrastructureInfo from './components/InfrastructureInfo';
 
 function App() {
   
