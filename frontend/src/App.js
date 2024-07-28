@@ -13,6 +13,7 @@ import VehicleInfo from './components/VehichleInfo';
 import InfrastructureForm from './components/InfrastructureForm';
 
 
+
 function App() {
   
   return (
@@ -26,6 +27,7 @@ function App() {
                     <Route path="assets/Vehicle" element={<VehicleInfo/>} />
                     <Route path="assets/addVehicle" element={<VehicleForm/>} />
                     <Route path="assets/addInfrastructure" element={<InfrastructureForm/>} />
+                   
                 </Route>
             </Routes>
         </BrowserRouter>
