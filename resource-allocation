@@ -1,0 +1,161 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error
+
+# Load the dataset
+file_path = '/mnt/data/vehicle_maintenance_data.csv'
+data = pd.read_csv('/content/drive/MyDrive/vehicle_maintenance_data.csv')
+
+# Display the first few rows of the dataset
+print(data.head())
+
+# Check the columns of the dataset
+print("Columns in the dataset:", data.columns)
+
+# Check for missing values
+print(data.isnull().sum())
+
+# Fill or drop missing values
+data = data.fillna(method='ffill')
+
+# Exploratory Data Analysis (EDA)
+
+# Summary statistics
+print(data.describe())
+
+# Pairplot to understand relationships
+sns.pairplot(data)
+plt.show()
+
+# Correlation matrix
+# Select only numeric columns for correlation matrix
+numeric_cols = data.select_dtypes(include=[np.number]).columns
+correlation_matrix = data[numeric_cols].corr()
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+plt.show()
+
+# Feature Engineering
+
+# Ensure the columns 'maintenance_cost' and 'miles_driven' exist
+if 'maintenance_cost' in data.columns and 'miles_driven' in data.columns:
+    # Handle division by zero or missing values in 'miles_driven'
+    data['maintenance_cost_per_mile'] = data.apply(
+        lambda row: row['maintenance_cost'] / row['miles_driven'] if row['miles_driven'] > 0 else 0, axis=1
+    )
+else:
+    print("Columns 'maintenance_cost' or 'miles_driven' are missing from the dataset.")
+    data['maintenance_cost_per_mile'] = np.nan  # Create the column with NaN values
+
+# Drop any irrelevant features
+# Example: data = data.drop(['irrelevant_feature'], axis=1)
+
+# Model Selection
+
+# Define features and target variable
+target_variable = 'Maintenance_History'  # Replace with the actual target column name
+
+if target_variable in data.columns:
+    X = data.drop(target_variable, axis=1)
+    y = data[target_variable]
+else:
+    raise KeyError(f"Target variable '{Maintenance_History}' not found in the dataset columns.")
+
+# Ensure only numeric features are used
+X_numeric = X.select_dtypes(include=[np.number])
+
+# Verify the data types
+print("Data types of features:")
+print(X_numeric.dtypes)
+
+# Ensure no NaN values in the feature set
+print("Any NaN values in features:", X_numeric.isnull().any().any())
+print("Any NaN values in target:", y.isnull().any().any())
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X_numeric, y, test_size=0.2, random_state=42)
+
+# Scale the features
+scaler = StandardScaler()
+
+# Verify the shape of the data before scaling
+print("Shape of X_train before scaling:", X_train.shape)
+print("Shape of X_test before scaling:", X_test.shape)
+
+# Perform scaling
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# Verify the shape of the data after scaling
+print("Shape of X_train after scaling:", X_train.shape)
+print("Shape of X_test after scaling:", X_test.shape)
+
+# Verify the target variable
+print("Shape of y_train:", y_train.shape)
+print("Shape of y_test:", y_test.shape)
+print("First few rows of y_train:", y_train.head())
+
+# Check for NaN values in the training and testing sets
+print("Any NaN values in X_train:", np.isnan(X_train).any())
+print("Any NaN values in X_test:", np.isnan(X_test).any())
+print("Any NaN values in y_train:", y_train.isnull().any())
+print("Any NaN values in y_test:", y_test.isnull().any())
+
+# Initialize and train the model
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+
+try:
+    model.fit(X_train, y_train)
+    print("Model training successful.")
+except ValueError as e:
+    print("Error during model training:", e)
+
+# Make predictions
+try:
+    if hasattr(model, 'predict'):
+        y_pred = model.predict(X_test)
+        print("Predictions successful.")
+        # Evaluate the model
+        mse = mean_squared_error(y_test, y_pred)
+        print(f'Mean Squared Error: {mse}')
+    else:
+        print("Model is not properly fitted.")
+except Exception as e:
+    print("Error during prediction:", e)
+
+# Prediction and Optimization
+
+# Predict using the model
+try:
+    if hasattr(model, 'predict'):
+        predictions = model.predict(X_test)
+    else:
+        predictions = None
+        print("Model is not properly fitted.")
+except Exception as e:
+    print("Error during prediction:", e)
+    predictions = None
+
+if predictions is not None:
+    # Optimization algorithm for resource allocation
+    # Example: Simple rule-based allocation
+    def allocate_resources(predictions, budget):
+        allocation = []
+        for pred in predictions:
+            if pred < budget / len(predictions):
+                allocation.append(pred)
+            else:
+                allocation.append(budget / len(predictions))
+        return allocation
+
+    # Total budget for allocation
+    total_budget = 100000  # Example budget
+    resource_allocation = allocate_resources(predictions, total_budget)
+
+    print(resource_allocation)
+else:
+    print("Predictions could not be made due to model fitting issues.")
