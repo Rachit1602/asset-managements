@@ -119,7 +119,7 @@ export default function Login() {
     if (!validateForm()) return;
 
     setLoading(true);
-    const apiEndpoint = 'http://localhost:4000/user/login';
+    const apiEndpoint = 'https://asset-managements.onrender.com/user/login';
 
     fetch(apiEndpoint, {
       method: 'POST',

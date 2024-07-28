@@ -52,7 +52,7 @@ const InfrastructureForm = () => {
         assetType:'Infrastructure',
         infrastructure:formData
     }
-    fetch('http://localhost:4000/assets', {
+    fetch('https://asset-managements.onrender.com/assets', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

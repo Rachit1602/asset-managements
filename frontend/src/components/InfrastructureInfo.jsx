@@ -4,7 +4,7 @@ import InfrastructureInfoCard from './InfrastructureCard';
 function App() {
     const [infrastructures,setInfrastructures]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:4000/assets/Infrastructure').then(response=>response.json()).then((data)=>{
+        fetch('https://asset-managements.onrender.com/assets/Infrastructure').then(response=>response.json()).then((data)=>{
             console.log(data);
             setInfrastructures([...data]);
             console.log(infrastructures); 

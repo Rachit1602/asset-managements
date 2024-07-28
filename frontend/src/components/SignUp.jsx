@@ -38,7 +38,7 @@ const SignupForm = () => {
     console.log('Form data:', formData);
 
     // Define the API endpoint where you want to send the data
-    const apiEndpoint = 'http://localhost:4000/user/signup';  // Ensure this is the correct endpoint
+    const apiEndpoint = 'https://asset-managements.onrender.com/user/signup';  // Ensure this is the correct endpoint
 
     // Send the data to the server using fetch
     fetch(apiEndpoint, {

@@ -3,7 +3,7 @@ import VehicleInfoCard from './VehicleInfoCard'
 export default function VehicleInfo(){
     const [vehicles,setVehicles]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:4000/assets/Vehicle').then(response=>response.json()).then((data)=>{
+        fetch('https://asset-managements.onrender.com/assets/Vehicle').then(response=>response.json()).then((data)=>{
             console.log(data);
             setVehicles([...data]);
             console.log(vehicles); 
