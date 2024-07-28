@@ -9,8 +9,6 @@ import Home from './components/Home';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import {BrowserRouter,Routes,Route,Outlet} from 'react-router-dom';
-import VehicleInfo from './components/VehichleInfo';
-import InfrastructureForm from './components/InfrastructureForm';
 
 
 function App() {
