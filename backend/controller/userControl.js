@@ -34,7 +34,7 @@ const signup = async (req, res) => {
 
         const mailOptions = {
             from: "yadavarpit2711@gmail.com",
-            to: "rachit279narang@gmail.com",
+            to: email,
             subject: 'Hello ✔',
             text: 'Hello world?',
             html: '<b>Hello world?</b>',
