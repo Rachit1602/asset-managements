@@ -12,5 +12,5 @@ exports.connect = () =>{
         console.log(err);
         console.log("Error found ");
         process.exit(1);
-    })
+    }) 
 }
