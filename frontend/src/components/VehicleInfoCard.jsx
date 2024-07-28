@@ -32,7 +32,7 @@ const VehicleInfoCard = ({ vehicle }) => {
             </div>
           </div>
           <button
-            className="mt-4 text-blue-500 hover:underline"
+            className="mt-4 text-white hover:underline"
             onClick={() => setIsModalOpen(true)}
           >
             More Details
@@ -96,7 +96,7 @@ const VehicleInfoCard = ({ vehicle }) => {
             </div>
           </div>
           <button
-            className="mt-4 text-blue-500 hover:underline"
+            className="mt-4 text-white hover:underline"
             onClick={() => setIsModalOpen(false)}
           >
             Close

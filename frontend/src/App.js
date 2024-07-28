@@ -12,6 +12,8 @@ import {BrowserRouter,Routes,Route,Outlet} from 'react-router-dom';
 import VehicleInfo from './components/VehichleInfo';
 import InfrastructureForm from './components/InfrastructureForm';
 import InfrastructureInfo from './components/InfrastructureInfo';
+import About from './components/About';
+import FeedbackForm from './components/FeedbackForm';
 
 
 function App() {
@@ -24,11 +26,14 @@ function App() {
                     <Route index element={<Home/>} />
                     <Route path="login" element={<Login/>} />
                     <Route path="signup" element={<SignupForm/>} />
-                    <Route path="assets/Vehicle" element={<VehicleInfo/>} />
-                    <Route path="assets/Infrastructure" element={<InfrastructureInfo/>} />
-                    <Route path="assets/addVehicle" element={<VehicleForm/>} />
-                    <Route path="assets/addInfrastructure" element={<InfrastructureForm/>} />
-                   
+                    <Route path="assets">
+                      <Route path="Vehicle" element={<VehicleInfo/>} />
+                      <Route path="Infrastructure" element={<InfrastructureInfo/>} />
+                      <Route path="addVehicle" element={<VehicleForm/>} />
+                      <Route path="addInfrastructure" element={<InfrastructureForm/>} />
+                    </Route>
+                    <Route path="about" element={<About/>} />
+                    <Route path="contact" element={<FeedbackForm/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

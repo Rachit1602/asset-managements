@@ -12,50 +12,49 @@ import {
   
   export default function FooterComp() {
     return (
-      <Footer container>
+      <Footer container className="bg-black text-white">
         <div className="w-full">
           <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
             <div>
               <FooterBrand
                 href="/"
-                src=""
-                alt="Flowbite Logo"
                 name="IndoreConnect"
+                className="text-white"
               />
             </div>
             <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
               <div>
-                <FooterTitle title="about" />
+                <FooterTitle title="about" className="text-white"/>
                 <FooterLinkGroup col>
-                  <FooterLink href="#">Flowbite</FooterLink>
-                  <FooterLink href="#">Tailwind CSS</FooterLink>
+                  <FooterLink href="/" className="text-white">Home</FooterLink>
+                  <FooterLink href="about" className="text-white">About</FooterLink>
                 </FooterLinkGroup>
               </div>
               <div>
-                <FooterTitle title="Follow us" />
+                <FooterTitle title="Follow us" className="text-white"/>
                 <FooterLinkGroup col>
-                  <FooterLink href="#">Github</FooterLink>
-                  <FooterLink href="#">Discord</FooterLink>
+                  <FooterLink href="#" className="text-white">Github</FooterLink>
+                  <FooterLink href="#" className="text-white">Discord</FooterLink>
                 </FooterLinkGroup>
               </div>
               <div>
-                <FooterTitle title="Legal" />
+                <FooterTitle title="Legal" className="text-white"/>
                 <FooterLinkGroup col>
-                  <FooterLink href="#">Privacy Policy</FooterLink>
-                  <FooterLink href="#">Terms &amp; Conditions</FooterLink>
+                  <FooterLink href="#" className="text-white">Privacy Policy</FooterLink>
+                  <FooterLink href="#" className="text-white">Terms &amp; Conditions</FooterLink>
                 </FooterLinkGroup>
               </div>
             </div>
           </div>
           <FooterDivider />
-          <div className="w-full sm:flex sm:items-center sm:justify-between">
-            <FooterCopyright href="#" by="Flowbite™" year={2022} />
+          <div className="w-full sm:flex sm:items-center sm:justify-between text-white">
+            <FooterCopyright href="#" by="IMC™" year={2022} className="text-white"/>
             <div className="mt-`2 4 flex space-x-6 sm:mt-0 sm:justify-center">
-              <FooterIcon href="#" icon={BsFacebook} />
-              <FooterIcon href="#" icon={BsInstagram} />
-              <FooterIcon href="#" icon={BsTwitter} />
-              <FooterIcon href="#" icon={BsGithub} />
-              <FooterIcon href="#" icon={BsDribbble} />
+              <FooterIcon href="#" className="text-white" icon={BsFacebook} />
+              <FooterIcon href="#" className="text-white" icon={BsInstagram} />
+              <FooterIcon href="#" className="text-white" icon={BsTwitter} />
+              <FooterIcon href="#" className="text-white" icon={BsGithub} />
+              <FooterIcon href="#" className="text-white" icon={BsDribbble} />
             </div>
           </div>
         </div>

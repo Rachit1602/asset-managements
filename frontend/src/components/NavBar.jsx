@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Dropdown, DropdownItem } from "flowbite-react";
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 const Navbar = () => {
@@ -13,8 +14,6 @@ const Navbar = () => {
   // Array containing navigation items
   const navItems = [
     { id: 1, text: 'Home' ,path:'/'},
-    { id: 2, text: 'Asset', path: 'assets'},
-    { id: 3, text: 'Resources',path: 'resources' },
     { id: 4, text: 'About',path: 'about'},
     { id: 5, text: 'Contact',path: 'contact'},
   ];
@@ -25,7 +24,7 @@ const Navbar = () => {
       <h1 className='my-auto mx-4 text-3xl font-bold  text-[#00df9a]'>IndoreConnect</h1>
 
       {/* Desktop Navigation */}
-      <ul className='hidden md:flex'>
+      <ul className='hidden md:flex items-center'>
         {navItems.map(item => (
           <li
             key={item.id}
@@ -34,10 +33,17 @@ const Navbar = () => {
             <a href={item.path}>{item.text}</a>
           </li>
         ))}
+        <li>
+          <Dropdown label="Assets" dismissOnClick={false} className="border-none cursor-pointer">
+            <DropdownItem><a href="/assets/addVehicle">Add Vehicle</a></DropdownItem>
+            <DropdownItem><a href="/assets/addInfrastructure">Add Infrastructure</a></DropdownItem>
+          </Dropdown>
+        </li>
       </ul>
+
       <ul className='flex'>
-        <li><a href='/login' className='mx-4  hover:bg-[#00df9a] p-4 rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>Login</a></li>
-        <li><a href='/signup' className='mx-4 hover:bg-[#00df9a] p-4 rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>SignUp</a></li>
+        <li><a href='/login' className='bg-[#00df9a] p-4 rounded-xl m-2 cursor-pointer duration-300 text-black'>Login</a></li>
+        <li><a href='/signup' className=' bg-[#00df9a] p-4 rounded-xl m-2 cursor-pointer duration-300 text-black'>SignUp</a></li>
       </ul>
 
       {/* Mobile Navigation Icon */}

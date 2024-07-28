@@ -199,7 +199,7 @@ const InfrastructureForm = () => {
      </fieldset>
 
 
-      <button type="submit">Submit</button>
+      <button type="submit" className='submit-btn'>Submit</button>
     </form>
   );
 };
