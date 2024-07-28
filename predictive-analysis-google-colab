@@ -1,0 +1,90 @@
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, classification_report
+import pandas as pd
+
+# Load the data
+data = pd.read_csv('/content/drive/MyDrive/vehicle_maintenance_data.csv')
+
+# Handle missing values (if any)
+data = data.dropna()
+
+# Convert categorical variables to numeric using Label Encoding
+label_encoder = LabelEncoder()
+categorical_columns = ['Vehicle_Model', 'Maintenance_History', 'Fuel_Type', 'Transmission_Type', 'Owner_Type', 'Tire_Condition', 'Brake_Condition', 'Battery_Status']
+for column in categorical_columns:
+    data[column] = label_encoder.fit_transform(data[column])
+
+# Convert date columns to datetime and then to numeric (e.g., number of days since a specific date)
+data['Last_Service_Date'] = pd.to_datetime(data['Last_Service_Date']).map(pd.Timestamp.toordinal)
+data['Warranty_Expiry_Date'] = pd.to_datetime(data['Warranty_Expiry_Date']).map(pd.Timestamp.toordinal)
+
+# Split the data into features and target variable
+X = data.drop(columns=['Need_Maintenance'])
+y = data['Need_Maintenance']
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Standardize the feature data
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# Train a Random Forest classifier
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# Make predictions on the testing set
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+report = classification_report(y_test, y_pred)
+
+print(f'Accuracy: {accuracy}')
+print(f'Classification Report:\n{report}')
+
+
+import pickle
+pickle.dump(model, open('model.pkl', 'wb'))
+pickle.dump(scaler, open('scaler.pkl', 'wb'))
+pickle.dump(label_encoder, open('label_encoder.pkl', 'wb'))
+
+
+
+import numpy as np
+from flask import Flask, request, jsonify, render_template_string
+import pickle
+
+app = Flask(__name__)
+# Updated path assuming 'model.pkl' is in the same directory as this script.
+model = pickle.load(open('model.pkl', 'rb'))
+
+
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+
+@app.route('/predict', methods=['POST'])
+def predict():
+
+    int_features = [float(x) for x in request.form.values()]
+    features = [np.array(int_features)]
+    prediction = model.predict(features)
+
+    output = round(prediction[0], 2)
+
+
+    return render_template('index.html', prediction_text='Maintenance Required: {}'.format(output))
+
+
+    if __name__ == "__main__":
+        app.run(debug=True)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
