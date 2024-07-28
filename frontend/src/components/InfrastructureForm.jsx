@@ -50,7 +50,7 @@ const InfrastructureForm = () => {
     // Here you would typically handle form submission, e.g., make an API call
     let a={
         assetType:'Infrastructure',
-        Infrastructure:formData
+        infrastructure:formData
     }
     fetch('http://localhost:4000/assets', {
         method: 'POST',

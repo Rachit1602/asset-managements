@@ -35,6 +35,10 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
+      <ul className='flex'>
+        <li><a href='/login' className='mx-4  hover:bg-[#00df9a] p-4 rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>Login</a></li>
+        <li><a href='/signup' className='mx-4 hover:bg-[#00df9a] p-4 rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>SignUp</a></li>
+      </ul>
 
       {/* Mobile Navigation Icon */}
       <div onClick={handleNav} className='block md:hidden'>
